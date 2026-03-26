@@ -12,19 +12,17 @@ page = st.sidebar.selectbox(
 
 if page == "Introduction & Industry Background":
     st.header("Aviation Industry Overview")
+    st.subheader("Key Aviation Services")
+    st.write("Pilot and flight crew")
+    st.write("Air Traffic Management")
+    st.write("Maintenance Crew")
+    st.write("Emergency Services")
+    st.subheader("Key Aviation Products")
 
-    st.subheader("""Key Aviation Services""")
-    st.write("""Pilot and flight crew""")
-    st.write("""Air Traffic Management""")
-    st.write("""Maintenance Crew""")
-    st.write("""Emergency Services""")
-
-    st.subheader("""Key Aviation Products""")
-
-if page == "Stakeholders & User Stories":
+elif page == "Stakeholders & User Stories":
     st.header("SOC Analyst -Kimberly Jones")
-
-    st.write("""Role: Kimberly is a frontline SOC Analyst responsible for monitoring alerts, identifying suspicious activity, and escalating incidents.
+    st.write("""
+Role: Kimberly is a frontline SOC Analyst responsible for monitoring alerts, identifying suspicious activity, and escalating incidents.
 
 Goals:
 - Quickly identify high-priority threats
@@ -40,10 +38,12 @@ User Stories:
 Mapped App Features:
 - Interactive filters (threat type, actor, asset)
 - Dynamic charts and tables
-- KPI metrics such as “Threat of the Week” and “Ransomware Events Detected""")
-    st.header("CISO -Dr. William Brown")
+- KPI metrics such as “Threat of the Week” and “Ransomware Events Detected”
+""")
 
-    st.write("""Role: Dr. Brown is the CISO responsible for cybersecurity strategy, risk reduction, and budget allocation.
+    st.header("CISO -Dr. William Brown")
+    st.write("""
+Role: Dr. Brown is the CISO responsible for cybersecurity strategy, risk reduction, and budget allocation.
 
 Goals:
 - Understand high-level global and local threat trends
@@ -58,10 +58,12 @@ User Stories:
 Mapped App Features:
 - Threat Trends section
 - Critical Asset Identification
-- KPI metrics like “Most Targeted Asset” and “Average Risk Score""")
-    st.header("Threat Hunter -Olivia Baptiste")
+- KPI metrics like “Most Targeted Asset” and “Average Risk Score”
+""")
 
-    st.write("""Role: Olivia is a Threat Hunter who proactively searches for adversary activity and uncovers hidden threats.
+    st.header("Threat Hunter -Olivia Baptiste")
+    st.write("""
+Role: Olivia is a Threat Hunter who proactively searches for adversary activity and uncovers hidden threats.
 
 Goals:
 - Detect adversaries that bypass automated defenses
@@ -78,95 +80,91 @@ Mapped App Features:
 - Dashboard filters for actors, assets, and capabilities
 """)
 
-if page == "CTI Use Case":
+elif page == "CTI Use Case":
     st.header("CTI Use Case")
+    st.write("enter aviation industry overview")
 
-    st.write("""enter aviation industry overview""")
-
-if page == "Threat Trends":
+elif page == "Threat Trends":
     st.header("Cyber Threat Trends in Aviation")
+    st.write("enter cyber threat trends in aviation")
 
-    st.write("""enter cyber threat trends in aviation""")
-
-if page == "Critical Assets":
+elif page == "Critical Assets":
     st.header("Critical Aviation Assets")
+    st.write("enter critical assets")
 
-    st.write("""enter critical assets""")
-
-if page == "Diamond Models":
+elif page == "Diamond Models":
     st.header("Threat Diamond Models")
 
-with st.expander("Adversary"):
-    st.write("""
+    st.subheader("Diamond Model: Group X (Ransomware)")
+    with st.expander("Adversary"):
+        st.write("""
 **Name:** Group X  
 **Motivation:** Financial gain  
 **Skill Level:** Advanced  
 **Behavior:** Uses spear-phishing, credential harvesting, and exploits unpatched systems  
 """)
 
-with st.expander("Capabilities"):
-    st.write("""
+    with st.expander("Capabilities"):
+        st.write("""
 - Ransomware payload deployment  
 - Privilege escalation tools  
-- Lateral movement frameworks (e.g., PsExec, Cobalt Strike)  
+- Lateral movement frameworks  
 - Data exfiltration scripts  
 - Strong encryption mechanisms  
 """)
 
-with st.expander("Infrastructure"):
-    st.write("""
+    with st.expander("Infrastructure"):
+        st.write("""
 - Command‑and‑control (C2) servers  
 - Compromised VPN endpoints  
 - Bulletproof hosting providers  
 - Encrypted communication channels  
 """)
 
-with st.expander("Victim"):
-    st.write("""
+    with st.expander("Victim"):
+        st.write("""
 - **Target Sector:** Healthcare organizations  
 - **Assets Impacted:** EMR systems, patient databases, imaging servers  
 - **Susceptibilities:** Outdated systems, weak MFA, unpatched vulnerabilities  
 """)
 
-st.header("Diamond Model: SilentHook (Phishing Actor)")
-
-with st.expander("Adversary"):
-    st.write("""
+    st.subheader("Diamond Model: SilentHook (Phishing Actor)")
+    with st.expander("Adversary"):
+        st.write("""
 **Name:** SilentHook  
 **Motivation:** Credential theft and initial access brokerage  
 **Skill Level:** Intermediate  
 **Behavior:** Mass phishing campaigns, MFA fatigue attacks, impersonation of trusted services  
 """)
 
-with st.expander("Capabilities"):
-    st.write("""
+    with st.expander("Capabilities"):
+        st.write("""
 - Email spoofing and domain impersonation  
 - MFA push‑bombing  
 - Credential harvesting kits  
 - Automated phishing frameworks  
 """)
 
-with st.expander("Infrastructure"):
-    st.write("""
+    with st.expander("Infrastructure"):
+        st.write("""
 - Disposable phishing domains  
 - Cloud‑hosted landing pages  
-- Redirect chains to evade detection  
+- Redirect chains  
 - Compromised email accounts used as relays  
 """)
 
-with st.expander("Victim"):
-    st.write("""
+    with st.expander("Victim"):
+        st.write("""
 - **Target Sector:** Aviation & Transportation  
 - **Assets Impacted:** Employee email accounts, SSO portals, HR systems  
 - **Susceptibilities:** High email volume, lack of phishing awareness, weak MFA enforcement  
 """)
 
-if page == "Intelligence Buy-In":
+elif page == "Intelligence Buy-In":
     st.header("Intelligence Buy-In")
+    st.write("enter aviation industry overview")
 
-    st.write("""enter aviation industry overview""")
-
-if page == "Dashboard":
+elif page == "Dashboard":
     st.header("Threat Dashboard")
 
     data = pd.DataFrame({
@@ -181,10 +179,7 @@ if page == "Dashboard":
         options=["All"] + sorted(data["threat_type"].unique())
     )
 
-    if threat_filter != "All":
-        filtered = data[data["threat_type"] == threat_filter]
-    else:
-        filtered = data
+    filtered = data if threat_filter == "All" else data[data["threat_type"] == threat_filter]
 
     st.subheader("Key Metrics")
     col1, col2 = st.columns(2)
@@ -206,12 +201,10 @@ if page == "Dashboard":
     st.subheader("Threat Event Details")
     st.dataframe(filtered)
 
-
-if page == "About Team":
+elif page == "About Team":
     st.header("Team Contributions")
-
-    st.write("""Ashley Mohamed:""")
-    st.write("""Tiffany Morgan:""")
-    st.write("""Mitali Patel:""")
-    st.write("""Elizabeth Powell:""")
-    st.write("""Ricardo Scully:""")
+    st.write("Ashley Mohamed:")
+    st.write("Tiffany Morgan:")
+    st.write("Mitali Patel:")
+    st.write("Elizabeth Powell:")
+    st.write("Ricardo Scully:")
