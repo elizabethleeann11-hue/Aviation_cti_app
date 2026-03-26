@@ -210,7 +210,7 @@ if page == "Dashboard":
 if page == "About Team":
     st.header("Team Contributions")
 
-    st.write("""Ashley Mohamed:""") hhhhh
+    st.write("""Ashley Mohamed:""")
     st.write("""Tiffany Morgan:""")
     st.write("""Mitali Patel:""")
     st.write("""Elizabeth Powell:""")
